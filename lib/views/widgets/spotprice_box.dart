@@ -11,10 +11,8 @@ class SpotPriceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      flex: 1,
-      child: Container(
-        height: 150,
+    return Container(
+        height: 50,
         margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -70,7 +68,6 @@ class SpotPriceCard extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }

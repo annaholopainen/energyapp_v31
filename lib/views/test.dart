@@ -37,7 +37,12 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
+                SizedBox(
+                  height:150,
+                  child:                Container(
+                  constraints: BoxConstraints(
+                    maxHeight: 300,
+                  ),
                   child: FutureBuilder<SpotPrice?>(
                     future: SpotPriceAPI().getSpotPrice(),
                     builder: (context, snapshot) {
@@ -53,7 +58,7 @@ class HomePage extends StatelessWidget {
                       }
                     },
                   ),
-                ),
+                ), ),
                 Expanded(child: SizedBox()),
               ],
             ),
