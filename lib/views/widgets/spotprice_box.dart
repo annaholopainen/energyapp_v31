@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class SpotPriceCard extends StatelessWidget {
-  final String price;
+  final String spotprice;
   final String date;
 
   SpotPriceCard({
-    required this.price,
+    required this.spotprice,
     required this.date,
   });
 
@@ -48,7 +48,7 @@ class SpotPriceCard extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.0),
               child: Text(
-                '€ $price kW/h',
+                '€ $spotprice kW/h',
                 style: TextStyle(
                   fontSize: 30,
                   color: Colors.black,

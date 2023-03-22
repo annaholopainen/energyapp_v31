@@ -6,6 +6,7 @@ import 'dart:convert';
 Color MyColor = Color(0xFFa3d0e8);
 
 class HomePage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +34,7 @@ class HomePage extends StatelessWidget {
                 )
               ),
             ),
-            SpotPriceCard(price: '1.234', date: '22/03/2023'),
+          SpotPriceCard(spotprice: '123', date: '22/03/2023'),
             Spacer(),
             BottomNavigationBar(
               backgroundColor: MyColor,
