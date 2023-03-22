@@ -1,3 +1,6 @@
+import 'package:energyapp_v3/models/consumptiontoday_api.dart';
+import 'package:energyapp_v3/views/widgets/consumptiontoday.dart';
+import 'package:energyapp_v3/views/widgets/consumptiontoday_card.dart';
 import 'package:energyapp_v3/views/widgets/spotprice_box.dart';
 import 'package:flutter/material.dart';
 import 'package:energyapp_v3/models/spotpriceapi.dart';
@@ -7,6 +10,8 @@ import 'package:intl/intl.dart';
 
 
 Color MyColor = Color(0xFFa3d0e8);
+Color MediumBlue = Color(0xFF5AA8D2);
+Color DarkBlue = Color(0xFF04669B);
 
 class HomePage extends StatelessWidget {
   @override
@@ -62,6 +67,24 @@ class HomePage extends StatelessWidget {
                     },
                   ),
                 ), ),
+                SizedBox(
+                  height:130,
+                  child:                Container(
+                    child: FutureBuilder<ConsumptionToday?>(
+                      future: ConsumptionTodayAPI().getConsumptionToday(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.waiting) {
+                          return LoadingScreen();
+                        } else if (snapshot.hasError) {
+                          return Text('Error: ${snapshot.error}');
+                        } else {
+                          return ConsumptionTodayCard(
+                            consumptiontoday: snapshot.data?.value,
+                          );
+                        }
+                      },
+                    ),
+                  ), ),
                 Expanded(child: SizedBox()),
               ],
             ),
@@ -72,7 +95,7 @@ class HomePage extends StatelessWidget {
           child: BottomNavigationBar(
             backgroundColor: MyColor,
             selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.indigo,
+            unselectedItemColor: DarkBlue,
             type: BottomNavigationBarType.fixed,
             items: [
               BottomNavigationBarItem(

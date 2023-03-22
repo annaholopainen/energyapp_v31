@@ -44,9 +44,9 @@ class SpotPriceCard extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 5.0),
                 child: Text(
-                  '€ $spotprice kW/h',
+                  '$spotprice €/kWh',
                   style: TextStyle(
-                      fontSize: 30,
+                      fontSize: 40,
                       color: Colors.black,
                       fontWeight: FontWeight.bold
                   ),

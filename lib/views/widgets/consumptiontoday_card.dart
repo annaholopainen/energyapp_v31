@@ -1,73 +1,62 @@
+
 import 'package:flutter/material.dart';
 
-class SpotPriceCard extends StatelessWidget {
-  final double? consumptiontoday;
-  final String date;
+Color MediumBlue = Color(0xFF5AA8D2);
+Color mediumBlueWithOpacity = Color(0xFF5AA8D2).withOpacity(0.6);
 
-  SpotPriceCard({
-    required this.spotprice,
-    required this.date,
+class ConsumptionTodayCard extends StatelessWidget {
+  final double? consumptiontoday;
+
+  ConsumptionTodayCard({
+    required this.consumptiontoday,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
-      margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.white.withOpacity(0.6),
-            offset: Offset(
-              0.0,
-              10.0,
-            ),
-            blurRadius: 10.0,
-            spreadRadius: -6.0,
-          ),
-        ],
-      ),
-      child: Stack(
-        children: [
-          Align(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 15),
-              child: Text(
-                  'Spot Price'
+        margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+        decoration: BoxDecoration(
+          color: MediumBlue,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: mediumBlueWithOpacity,
+              offset: Offset(
+                0.0,
+                10.0,
               ),
+              blurRadius: 10.0,
+              spreadRadius: -6.0,
             ),
-            alignment: Alignment.topLeft,
-          ),
-          Align(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5.0),
-              child: Text(
-                '€ $spotprice kW/h',
-                style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold
+          ],
+        ),
+        child: Stack(
+          children: [
+            Align(
+              child: Padding(
+                padding:  EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 40.0),
+                child: Text(
+                    "Today's Electricity Consumption"
                 ),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
-                textAlign: TextAlign.center,
+              ),
+              alignment: Alignment.topLeft,
+            ),
+            Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 40),
+                child: Text(
+                  '$consumptiontoday kW',
+                  style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
-            alignment: Alignment.center,
-          ),
-          Align(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 15),
-              child: Text(
-                  date
-              ),
-            ),
-            alignment: Alignment.bottomRight,
-          ),
-        ],
-      ),
-    );
+          ],
+        ),
+      );
   }
 }
