@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:energyapp_v3/models/spotpriceapi.dart';
 import 'package:energyapp_v3/views/loading_screen.dart';
 import 'package:energyapp_v3/views/widgets/spotprice.dart';
+import 'package:intl/intl.dart';
+
 
 Color MyColor = Color(0xFFa3d0e8);
 
 class HomePage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
+    DateTime today = DateTime.now();
+    String formattedDate = DateFormat('dd-MM-yyyy').format(today);
     return Scaffold(
     body: Column(
       children: [
@@ -53,7 +56,7 @@ class HomePage extends StatelessWidget {
                       } else {
                         return SpotPriceCard(
                           spotprice: snapshot.data?.value,
-                          date: '22/03/2023',
+                          date: formattedDate,
                         );
                       }
                     },
