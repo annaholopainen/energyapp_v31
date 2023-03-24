@@ -4,7 +4,6 @@ import 'package:energyapp_v3/views/widgets/consumptiontoday_card.dart';
 import 'package:energyapp_v3/views/widgets/spotprice_box.dart';
 import 'package:flutter/material.dart';
 import 'package:energyapp_v3/models/spotpriceapi.dart';
-import 'package:energyapp_v3/views/loading_screen.dart';
 import 'package:energyapp_v3/views/widgets/spotprice.dart';
 import 'package:intl/intl.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -59,7 +58,7 @@ class HomePage extends StatelessWidget {
                         return Center(
                           child: LoadingAnimationWidget.inkDrop(
                               color: Color(0xFF04669b),
-                              size: 70),);
+                              size: 40),);
                       } else if (snapshot.hasError) {
                         return Text('Error: ${snapshot.error}');
                       } else {
@@ -81,7 +80,7 @@ class HomePage extends StatelessWidget {
                           return Center(
                               child: LoadingAnimationWidget.inkDrop(
                               color: Color(0xFF04669b),
-                              size: 70),);
+                              size: 40),);
                         } else if (snapshot.hasError) {
                           return Text('Error: ${snapshot.error}');
                         } else {
