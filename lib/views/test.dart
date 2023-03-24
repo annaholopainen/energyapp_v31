@@ -7,6 +7,7 @@ import 'package:energyapp_v3/models/spotpriceapi.dart';
 import 'package:energyapp_v3/views/loading_screen.dart';
 import 'package:energyapp_v3/views/widgets/spotprice.dart';
 import 'package:intl/intl.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 
 Color MyColor = Color(0xFFa3d0e8);
@@ -55,7 +56,10 @@ class HomePage extends StatelessWidget {
                     future: SpotPriceAPI().getSpotPrice(),
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
-                        return LoadingScreen();
+                        return Center(
+                          child: LoadingAnimationWidget.inkDrop(
+                              color: Color(0xFF04669b),
+                              size: 70),);
                       } else if (snapshot.hasError) {
                         return Text('Error: ${snapshot.error}');
                       } else {
@@ -74,7 +78,10 @@ class HomePage extends StatelessWidget {
                       future: ConsumptionTodayAPI().getConsumptionToday(),
                       builder: (context, snapshot) {
                         if (snapshot.connectionState == ConnectionState.waiting) {
-                          return LoadingScreen();
+                          return Center(
+                              child: LoadingAnimationWidget.inkDrop(
+                              color: Color(0xFF04669b),
+                              size: 70),);
                         } else if (snapshot.hasError) {
                           return Text('Error: ${snapshot.error}');
                         } else {
