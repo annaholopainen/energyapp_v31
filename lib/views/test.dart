@@ -33,10 +33,10 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: 200,
+                  height: 250,
                   child: Center(
                     child: Text(
-                      'Welcome user',
+                      'Welcome Ari',
                       style: TextStyle(
                         fontFamily: 'Didact Gothic',
                         fontSize: 30.0,

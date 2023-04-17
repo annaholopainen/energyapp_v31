@@ -44,12 +44,17 @@ class ConsumptionTodayCard extends StatelessWidget {
             Center(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 40),
-                child: Text(
-                  '$consumptiontoday kW',
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold
+                child: RichText(
+                  text: TextSpan(
+                    text: '$consumptiontoday',
+                    style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold
+                    ),
+                    children:const <TextSpan>[
+                      TextSpan(text: ' kW', style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal)),
+                    ],
                   ),
                   textAlign: TextAlign.center,
                 ),

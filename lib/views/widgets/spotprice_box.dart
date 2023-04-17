@@ -35,7 +35,7 @@ class SpotPriceCard extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 15),
                 child: Text(
-                    'Spot Price'
+                    'Spot price right now'
                 ),
               ),
               alignment: Alignment.topLeft,
@@ -43,16 +43,18 @@ class SpotPriceCard extends StatelessWidget {
             Align(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 5.0),
-                child: Text(
-                  '$spotprice €/kWh',
-                  style: TextStyle(
-                      fontSize: 40,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold
+                child: RichText(
+                  text: TextSpan(
+                    text:'$spotprice',
+                    style: TextStyle(
+                        fontSize: 40,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold
+                    ),
+                    children: const <TextSpan>[
+                      TextSpan(text: ' snt/kWh', style: TextStyle(fontSize: 25, fontWeight: FontWeight.normal)),
+                    ],
                   ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                  textAlign: TextAlign.center,
                 ),
               ),
               alignment: Alignment.center,
