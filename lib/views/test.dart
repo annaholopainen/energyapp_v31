@@ -14,6 +14,14 @@ Color MediumBlue = Color(0xFF5AA8D2);
 Color DarkBlue = Color(0xFF04669B);
 
 class HomePage extends StatelessWidget {
+  final SpotPrice? spotPrice;
+  final ConsumptionToday? consumptionToday;
+
+  const HomePage({
+    Key? key,
+    required this.spotPrice,
+    required this.consumptionToday,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     DateTime today = DateTime.now();
@@ -30,69 +38,30 @@ class HomePage extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 250,
-                  child: Center(
-                    child: Text(
-                      'Welcome Ari',
-                      style: TextStyle(
-                        fontFamily: 'Didact Gothic',
-                        fontSize: 30.0,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height:150,
-                  child:                Container(
-                  constraints: BoxConstraints(
-                    maxHeight: 300,
-                  ),
-                  child: FutureBuilder<SpotPrice?>(
-                    future: SpotPriceAPI().getSpotPrice(),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return Center(
-                          child: LoadingAnimationWidget.inkDrop(
-                              color: Color(0xFF04669b),
-                              size: 40),);
-                      } else if (snapshot.hasError) {
-                        return Text('Error: ${snapshot.error}');
-                      } else {
-                        return SpotPriceCard(
-                          spotprice: snapshot.data?.value,
+            child: Center(
+              child:Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(child: SizedBox()),
+                  SizedBox(
+                    height:150,
+                    child:Container(
+                        child:
+                        SpotPriceCard(
+                          spotprice: spotPrice?.value,
                           date: formattedDate,
-                        );
-                      }
-                    },
-                  ),
-                ), ),
-                SizedBox(
-                  height:130,
-                  child:                Container(
-                    child: FutureBuilder<ConsumptionToday?>(
-                      future: ConsumptionTodayAPI().getConsumptionToday(),
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState == ConnectionState.waiting) {
-                          return Center(
-                              child: LoadingAnimationWidget.inkDrop(
-                              color: Color(0xFF04669b),
-                              size: 40),);
-                        } else if (snapshot.hasError) {
-                          return Text('Error: ${snapshot.error}');
-                        } else {
-                          return ConsumptionTodayCard(
-                            consumptiontoday: snapshot.data?.value,
-                          );
-                        }
-                      },
-                    ),
-                  ), ),
-                Expanded(child: SizedBox()),
-              ],
+                        ),
+                    ), ),
+                  SizedBox(
+                    height:130,
+                    child:                Container(
+                      child: ConsumptionTodayCard(
+                        consumptiontoday: consumptionToday?.value,
+                      ),
+                    ), ),
+                  Expanded(child: SizedBox()),
+                ],
+              ),
             ),
           ),
         ),
