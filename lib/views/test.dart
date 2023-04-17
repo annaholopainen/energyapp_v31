@@ -1,5 +1,6 @@
 import 'package:energyapp_v3/views/widgets/consumptiontoday.dart';
 import 'package:energyapp_v3/views/widgets/consumptiontoday_card.dart';
+import 'package:energyapp_v3/views/widgets/fireplacecard.dart';
 import 'package:energyapp_v3/views/widgets/spotprice_box.dart';
 import 'package:flutter/material.dart';
 import 'package:energyapp_v3/views/widgets/spotprice.dart';
@@ -42,21 +43,32 @@ class HomePage extends StatelessWidget {
                 children: [
                   Expanded(child: SizedBox()),
                   SizedBox(
+                    height:130,
+                    child: Container(
+                      child: FireplaceCard(
+                        category: 1,
+                        fireplaceAdvice: "Don't warm your fireplace!",
+                      ),
+                    ),
+                  ),
+                  SizedBox(
                     height:150,
-                    child:Container(
+                    child: Container(
                         child:
                         SpotPriceCard(
                           spotprice: spotPrice?.value,
                           date: formattedDate,
                         ),
-                    ), ),
+                    ),
+                  ),
                   SizedBox(
                     height:130,
-                    child:                Container(
+                    child: Container(
                       child: ConsumptionTodayCard(
                         consumptiontoday: consumptionToday?.value,
                       ),
-                    ), ),
+                    ),
+                  ),
                   Expanded(child: SizedBox()),
                 ],
               ),

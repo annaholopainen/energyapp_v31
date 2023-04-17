@@ -19,7 +19,7 @@ class FireplaceCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
       decoration: BoxDecoration(
-        color: MediumBlue,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
@@ -44,36 +44,30 @@ class FireplaceCard extends StatelessWidget {
             ),
             alignment: Alignment.topLeft,
           ),
+          Align(
+            child: Padding(
+              padding: EdgeInsets.only(left:15, right: 15),
+              child: SvgPicture.asset(
+                'assets/fireplace.svg',
+                height: 35,
+                width: 35,
+              ),
+            ),
+            alignment: Alignment.centerLeft,
+          ),
           Center(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 40),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  RichText(
-                    text: TextSpan(
-                      text: '$fireplaceAdvice',
-                      style: TextStyle(
-                          fontSize: 30,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold
-                      ),
-                      children:const <TextSpan>[
-                        TextSpan(text: ' kW', style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal)),
-                      ],
-                    ),
-                    textAlign: TextAlign.center,
+              padding: EdgeInsets.only(left: 25),
+              child: RichText(
+                text: TextSpan(
+                  text: '$fireplaceAdvice',
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold
                   ),
-                  SizedBox(width: 10),
-                  SvgPicture.asset(
-                    'assets/my_image.svg',
-                    height: 100,
-                    width: 100,
-                    color: Colors.red,
-                  ),
-                ],
-              ),
+                ),
+              )
             ),
           ),
           Align(
