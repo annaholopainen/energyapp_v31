@@ -1,12 +1,10 @@
-import 'package:energyapp_v3/models/consumptiontoday_api.dart';
 import 'package:energyapp_v3/views/widgets/consumptiontoday.dart';
 import 'package:energyapp_v3/views/widgets/consumptiontoday_card.dart';
 import 'package:energyapp_v3/views/widgets/spotprice_box.dart';
 import 'package:flutter/material.dart';
-import 'package:energyapp_v3/models/spotpriceapi.dart';
 import 'package:energyapp_v3/views/widgets/spotprice.dart';
 import 'package:intl/intl.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
+
 
 
 Color MyColor = Color(0xFFa3d0e8);
