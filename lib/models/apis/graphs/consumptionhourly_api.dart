@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:energyapp_v3/views/widgets/graphs/consumptionhourly.dart';
+import 'package:energyapp_v3/views/widgets/graphs/classes/consumption_hourly.dart';
 import 'package:http/http.dart' as http;
 
 class ConsumptionHourlyAPI{
