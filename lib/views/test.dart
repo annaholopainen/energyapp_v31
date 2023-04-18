@@ -53,9 +53,12 @@ class HomePage extends StatelessWidget {
                       height: 130,
                       child: Align(
                         alignment: Alignment.centerRight,
-                        child: Container(
-                          child: TemperatureCard(
-                            temperature: temperature?.value,
+                        child: Padding(
+                          padding: EdgeInsets.only(right: 10.0), // set the desired padding value
+                          child: Container(
+                            child: TemperatureCard(
+                              temperature: temperature?.value,
+                            ),
                           ),
                         ),
                       ),
@@ -87,7 +90,8 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Expanded(child: SizedBox()),
+                    Spacer(),
+                    Spacer(),
                   ],
                 ),
               ),
