@@ -1,8 +1,8 @@
 import 'package:energyapp_v3/models/consumptiontoday_api.dart';
 import 'package:energyapp_v3/models/spotpriceapi.dart';
+import 'package:energyapp_v3/views/loading_screen.dart';
 import 'package:energyapp_v3/views/test.dart';
 import 'package:flutter/material.dart';
-import 'loading_screen.dart';
 
 Color MyColor = Color(0xFFa3d0e8);
 void main() {
@@ -11,8 +11,9 @@ void main() {
 
 class MyApp extends StatelessWidget {
   final Future<List<dynamic>> apiData = Future.wait([
-    SpotPriceAPI().getSpotPrice(), // my first API call.
-    ConsumptionTodayAPI().getConsumptionToday(), // my second API call.
+    SpotPriceAPI().getSpotPrice(), // my first API call
+    ConsumptionTodayAPI().getConsumptionToday(),
+
   ]);
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
             // Once the data is loaded, show the screen that displays it.
             return HomePage(
               spotPrice: snapshot.data![0], // data from first API call
-              consumptionToday: snapshot.data![1], // data from second API call
+              consumptionToday: snapshot.data![1],// data from second API call
             );
           }
         },

@@ -26,80 +26,80 @@ class HomePage extends StatelessWidget {
     DateTime today = DateTime.now();
     String formattedDate = DateFormat('dd-MM-yyyy').format(today);
     return Scaffold(
-    body: Column(
-      children: [
-        Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-              color: MyColor,
-              image: DecorationImage(
-                image: AssetImage('assets/BGShapes.png'),
-                fit: BoxFit.cover,
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: MyColor,
+                image: DecorationImage(
+                  image: AssetImage('assets/BGShapes.png'),
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-            child: Center(
-              child:Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(child: SizedBox()),
-                  SizedBox(
-                    height:130,
-                    child: Container(
-                      child: FireplaceCard(
-                        category: 1,
-                        fireplaceAdvice: "Don't warm your fireplace!",
+              child: Center(
+                child:Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(child: SizedBox()),
+                    SizedBox(
+                      height:130,
+                      child: Container(
+                        child: FireplaceCard(
+                          category: 1,
+                          fireplaceAdvice: "Don't warm your fireplace!",
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height:150,
-                    child: Container(
+                    SizedBox(
+                      height:150,
+                      child: Container(
                         child:
                         SpotPriceCard(
                           spotprice: spotPrice?.value,
                           date: formattedDate,
                         ),
-                    ),
-                  ),
-                  SizedBox(
-                    height:130,
-                    child: Container(
-                      child: ConsumptionTodayCard(
-                        consumptiontoday: consumptionToday?.value,
                       ),
                     ),
-                  ),
-                  Expanded(child: SizedBox()),
-                ],
+                    SizedBox(
+                      height:130,
+                      child: Container(
+                        child: ConsumptionTodayCard(
+                          consumptiontoday: consumptionToday?.value,
+                        ),
+                      ),
+                    ),
+                    Expanded(child: SizedBox()),
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-        Container(
-          height: kBottomNavigationBarHeight,
-          child: BottomNavigationBar(
-            backgroundColor: MyColor,
-            selectedItemColor: Colors.white,
-            unselectedItemColor: DarkBlue,
-            type: BottomNavigationBarType.fixed,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.auto_graph_sharp),
-                label: 'Graphs',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Profile',
-              ),
-            ],
+          Container(
+            height: kBottomNavigationBarHeight,
+            child: BottomNavigationBar(
+              backgroundColor: MyColor,
+              selectedItemColor: Colors.white,
+              unselectedItemColor: DarkBlue,
+              type: BottomNavigationBarType.fixed,
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.auto_graph_sharp),
+                  label: 'Graphs',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.person),
+                  label: 'Profile',
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
-    ),
+        ],
+      ),
     );
   }
 }
