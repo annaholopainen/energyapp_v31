@@ -3,7 +3,7 @@ import 'package:energyapp_v3/models/fireplace_api.dart';
 import 'package:energyapp_v3/models/spotprice_api.dart';
 import 'package:energyapp_v3/models/temperature_api.dart';
 import 'package:energyapp_v3/views/loading_screen.dart';
-import 'package:energyapp_v3/views/test.dart';
+import 'package:energyapp_v3/views/navigation_layout.dart';
 import 'package:flutter/material.dart';
 
 void main() {
