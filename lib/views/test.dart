@@ -1,8 +1,9 @@
 import 'package:energyapp_v3/views/widgets/consumptiontoday.dart';
 import 'package:energyapp_v3/views/widgets/consumptiontoday_card.dart';
 import 'package:energyapp_v3/views/widgets/fireplaceadvice.dart';
-import 'package:energyapp_v3/views/widgets/fireplacecard.dart';
-import 'package:energyapp_v3/views/widgets/spotprice_box.dart';
+import 'package:energyapp_v3/views/widgets/fireplace_card.dart';
+import 'package:energyapp_v3/views/widgets/spotprice_card.dart';
+import 'package:energyapp_v3/views/widgets/temperature_card.dart';
 import 'package:flutter/material.dart';
 import 'package:energyapp_v3/views/widgets/spotprice.dart';
 import 'package:intl/intl.dart';
@@ -44,8 +45,18 @@ class HomePage extends StatelessWidget {
                 child:Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Expanded(child: SizedBox()),
-
+                    Spacer(),
+                    SizedBox(
+                      height: 130,
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Container(
+                          child: TemperatureCard(
+                            temperature: '25',
+                          ),
+                        ),
+                      ),
+                    ),
                     SizedBox(
                       height:150,
                       child: Container(
