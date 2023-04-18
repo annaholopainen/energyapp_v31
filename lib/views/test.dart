@@ -3,6 +3,7 @@ import 'package:energyapp_v3/views/widgets/consumptiontoday_card.dart';
 import 'package:energyapp_v3/views/widgets/fireplaceadvice.dart';
 import 'package:energyapp_v3/views/widgets/fireplace_card.dart';
 import 'package:energyapp_v3/views/widgets/spotprice_card.dart';
+import 'package:energyapp_v3/views/widgets/temperature.dart';
 import 'package:energyapp_v3/views/widgets/temperature_card.dart';
 import 'package:flutter/material.dart';
 import 'package:energyapp_v3/views/widgets/spotprice.dart';
@@ -18,12 +19,14 @@ class HomePage extends StatelessWidget {
   final SpotPrice? spotPrice;
   final ConsumptionToday? consumptionToday;
   final FireplaceAdvice? fireplaceAdvice;
+  final Temperature? temperature;
 
   const HomePage({
     Key? key,
     required this.spotPrice,
     required this.consumptionToday,
     required this.fireplaceAdvice,
+    required this.temperature,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -52,7 +55,7 @@ class HomePage extends StatelessWidget {
                         alignment: Alignment.centerRight,
                         child: Container(
                           child: TemperatureCard(
-                            temperature: '25',
+                            temperature: temperature?.value,
                           ),
                         ),
                       ),

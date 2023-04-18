@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TemperatureCard extends StatelessWidget {
-  final String temperature;
+  final double? temperature;
 
   TemperatureCard({
     required this.temperature,
@@ -20,7 +20,7 @@ class TemperatureCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              temperature,
+              "$temperature",
               style: TextStyle(
                 fontSize: 40,
                 color: Colors.white,

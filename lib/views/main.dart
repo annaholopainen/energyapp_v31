@@ -1,6 +1,7 @@
 import 'package:energyapp_v3/models/consumptiontoday_api.dart';
 import 'package:energyapp_v3/models/fireplace_api.dart';
 import 'package:energyapp_v3/models/spotprice_api.dart';
+import 'package:energyapp_v3/models/temperature_api.dart';
 import 'package:energyapp_v3/views/loading_screen.dart';
 import 'package:energyapp_v3/views/test.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     SpotPriceAPI().getSpotPrice(), // my first API call
     ConsumptionTodayAPI().getConsumptionToday(),
     FireplaceAdviceAPI().getFireplaceAdvice(),
-
+    TemperatureAPI().getTemperature(),
   ]);
   @override
   Widget build(BuildContext context) {
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
               spotPrice: snapshot.data![0], // data from first API call
               consumptionToday: snapshot.data![1], // data from second API call
               fireplaceAdvice: snapshot.data![2],
+              temperature: snapshot.data![3],
             );
           }
         },
