@@ -45,15 +45,7 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Expanded(child: SizedBox()),
-                    SizedBox(
-                      height:130,
-                      child: Container(
-                        child: FireplaceCard(
-                          category: fireplaceAdvice?.category,
-                          fireplaceAdvice: fireplaceAdvice?.value,
-                        ),
-                      ),
-                    ),
+
                     SizedBox(
                       height:150,
                       child: Container(
@@ -61,6 +53,15 @@ class HomePage extends StatelessWidget {
                         SpotPriceCard(
                           spotprice: spotPrice?.value,
                           date: formattedDate,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height:130,
+                      child: Container(
+                        child: FireplaceCard(
+                          category: fireplaceAdvice?.category,
+                          fireplaceAdvice: fireplaceAdvice?.value,
                         ),
                       ),
                     ),
