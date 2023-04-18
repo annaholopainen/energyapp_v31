@@ -53,7 +53,7 @@ class ConsumptionTodayCard extends StatelessWidget {
                         fontWeight: FontWeight.bold
                     ),
                     children:const <TextSpan>[
-                      TextSpan(text: ' kW', style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal)),
+                      TextSpan(text: ' kWh', style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal)),
                     ],
                   ),
                   textAlign: TextAlign.center,
