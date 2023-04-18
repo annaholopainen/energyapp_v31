@@ -9,7 +9,9 @@ class ConsumptionTodayAPI{
     );
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
-      final consumptiontoday = ConsumptionToday(value: data['consumption in the 24 hours']);
+      String consumptionString = data["consumption in the 24 hours"].replaceAll(" kWh", "");
+      double consumptionDouble = double.parse(consumptionString);
+      final consumptiontoday = ConsumptionToday(value: consumptionDouble);
       return consumptiontoday;
     } else {
       throw Exception('Failed to load data');
