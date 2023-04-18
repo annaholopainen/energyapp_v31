@@ -15,7 +15,7 @@ class TemperatureCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.0),
+        padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -36,6 +36,7 @@ class TemperatureCard extends StatelessWidget {
                 fontWeight: FontWeight.normal,
               ),
             ),
+            Icon(Icons.thermostat, color: Colors.white, size: 30)
           ],
         ),
       ),
