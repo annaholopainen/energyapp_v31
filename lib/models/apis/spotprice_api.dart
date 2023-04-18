@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:energyapp_v3/views/widgets/spotprice.dart';
+import 'package:energyapp_v3/views/widgets/classes/spotprice.dart';
 
 class SpotPriceAPI{
   Future<SpotPrice> getSpotPrice() async {

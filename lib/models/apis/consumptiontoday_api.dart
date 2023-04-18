@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:energyapp_v3/views/widgets/consumptiontoday.dart';
+import 'package:energyapp_v3/views/widgets/classes/consumptiontoday.dart';
 
 class ConsumptionTodayAPI{
   Future<ConsumptionToday> getConsumptionToday() async {

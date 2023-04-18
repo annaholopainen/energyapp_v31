@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:energyapp_v3/views/widgets/fireplaceadvice.dart';
+import 'package:energyapp_v3/views/widgets/classes/fireplaceadvice.dart';
 
 class FireplaceAdviceAPI{
   Future<FireplaceAdvice> getFireplaceAdvice() async {

@@ -1,11 +1,11 @@
 import 'package:energyapp_v3/views/graphs_screen.dart';
 import 'package:energyapp_v3/views/home_page.dart';
 import 'package:energyapp_v3/views/profile_screen.dart';
-import 'package:energyapp_v3/views/widgets/consumptiontoday.dart';
-import 'package:energyapp_v3/views/widgets/fireplaceadvice.dart';
-import 'package:energyapp_v3/views/widgets/temperature.dart';
+import 'package:energyapp_v3/views/widgets/classes/consumptiontoday.dart';
+import 'package:energyapp_v3/views/widgets/classes/fireplaceadvice.dart';
+import 'package:energyapp_v3/views/widgets/classes/temperature.dart';
 import 'package:flutter/material.dart';
-import 'package:energyapp_v3/views/widgets/spotprice.dart';
+import 'package:energyapp_v3/views/widgets/classes/spotprice.dart';
 import 'package:energyapp_v3/models/colors/LightBlue.dart';
 import 'package:energyapp_v3/models/colors/DarkBlue.dart';
 

@@ -1,12 +1,12 @@
-import 'package:energyapp_v3/views/widgets/consumptiontoday.dart';
-import 'package:energyapp_v3/views/widgets/consumptiontoday_card.dart';
-import 'package:energyapp_v3/views/widgets/fireplaceadvice.dart';
-import 'package:energyapp_v3/views/widgets/fireplace_card.dart';
-import 'package:energyapp_v3/views/widgets/spotprice_card.dart';
-import 'package:energyapp_v3/views/widgets/temperature.dart';
-import 'package:energyapp_v3/views/widgets/temperature_card.dart';
+import 'package:energyapp_v3/views/widgets/classes/consumptiontoday.dart';
+import 'package:energyapp_v3/views/widgets/cards/consumptiontoday_card.dart';
+import 'package:energyapp_v3/views/widgets/classes/fireplaceadvice.dart';
+import 'package:energyapp_v3/views/widgets/cards/fireplace_card.dart';
+import 'package:energyapp_v3/views/widgets/cards/spotprice_card.dart';
+import 'package:energyapp_v3/views/widgets/classes/temperature.dart';
+import 'package:energyapp_v3/views/widgets/cards/temperature_card.dart';
 import 'package:flutter/material.dart';
-import 'package:energyapp_v3/views/widgets/spotprice.dart';
+import 'package:energyapp_v3/views/widgets/classes/spotprice.dart';
 import 'package:intl/intl.dart';
 import 'package:energyapp_v3/models/colors/LightBlue.dart';
 

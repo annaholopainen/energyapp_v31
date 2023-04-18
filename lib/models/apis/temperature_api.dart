@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:energyapp_v3/views/widgets/temperature.dart';
+import 'package:energyapp_v3/views/widgets/classes/temperature.dart';
 import 'package:http/http.dart' as http;
 
 class TemperatureAPI{
