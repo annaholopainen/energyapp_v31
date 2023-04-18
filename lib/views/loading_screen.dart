@@ -20,7 +20,7 @@ class LoadingScreen extends StatelessWidget {
             left: 0,
             right: 0,
             child: Text(
-              "Welcome Ari",
+              "Welcome",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 40,
