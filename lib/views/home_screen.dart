@@ -8,12 +8,8 @@ import 'package:energyapp_v3/views/widgets/temperature_card.dart';
 import 'package:flutter/material.dart';
 import 'package:energyapp_v3/views/widgets/spotprice.dart';
 import 'package:intl/intl.dart';
+import 'package:energyapp_v3/models/MyColor.dart';
 
-
-
-Color MyColor = Color(0xFFa3d0e8);
-Color MediumBlue = Color(0xFF5AA8D2);
-Color DarkBlue = Color(0xFF04669B);
 
 class HomePage extends StatelessWidget {
   final SpotPrice? spotPrice;
@@ -28,6 +24,7 @@ class HomePage extends StatelessWidget {
     required this.fireplaceAdvice,
     required this.temperature,
   }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     DateTime today = DateTime.now();
@@ -95,29 +92,6 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
-          ),
-          Container(
-            height: kBottomNavigationBarHeight,
-            child: BottomNavigationBar(
-              backgroundColor: MyColor,
-              selectedItemColor: Colors.white,
-              unselectedItemColor: DarkBlue,
-              type: BottomNavigationBarType.fixed,
-              items: [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
-                  label: 'Home',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.auto_graph_sharp),
-                  label: 'Graphs',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
-                  label: 'Profile',
-                ),
-              ],
             ),
           ),
         ],
