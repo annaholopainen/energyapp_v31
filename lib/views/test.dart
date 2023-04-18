@@ -1,5 +1,6 @@
 import 'package:energyapp_v3/views/widgets/consumptiontoday.dart';
 import 'package:energyapp_v3/views/widgets/consumptiontoday_card.dart';
+import 'package:energyapp_v3/views/widgets/fireplaceadvice.dart';
 import 'package:energyapp_v3/views/widgets/fireplacecard.dart';
 import 'package:energyapp_v3/views/widgets/spotprice_box.dart';
 import 'package:flutter/material.dart';
@@ -15,11 +16,13 @@ Color DarkBlue = Color(0xFF04669B);
 class HomePage extends StatelessWidget {
   final SpotPrice? spotPrice;
   final ConsumptionToday? consumptionToday;
+  final FireplaceAdvice? fireplaceAdvice;
 
   const HomePage({
     Key? key,
     required this.spotPrice,
     required this.consumptionToday,
+    required this.fireplaceAdvice,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -46,8 +49,8 @@ class HomePage extends StatelessWidget {
                       height:130,
                       child: Container(
                         child: FireplaceCard(
-                          category: 1,
-                          fireplaceAdvice: "Don't warm your fireplace!",
+                          category: fireplaceAdvice?.category,
+                          fireplaceAdvice: fireplaceAdvice?.value,
                         ),
                       ),
                     ),

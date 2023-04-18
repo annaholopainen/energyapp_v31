@@ -1,4 +1,5 @@
 import 'package:energyapp_v3/models/consumptiontoday_api.dart';
+import 'package:energyapp_v3/models/fireplaceapi.dart';
 import 'package:energyapp_v3/models/spotpriceapi.dart';
 import 'package:energyapp_v3/views/loading_screen.dart';
 import 'package:energyapp_v3/views/test.dart';
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   final Future<List<dynamic>> apiData = Future.wait([
     SpotPriceAPI().getSpotPrice(), // my first API call
     ConsumptionTodayAPI().getConsumptionToday(),
+    FireplaceAdviceAPI().getFireplaceAdvice(),
 
   ]);
   @override
@@ -28,7 +30,8 @@ class MyApp extends StatelessWidget {
             // Once the data is loaded, show the screen that displays it.
             return HomePage(
               spotPrice: snapshot.data![0], // data from first API call
-              consumptionToday: snapshot.data![1],// data from second API call
+              consumptionToday: snapshot.data![1], // data from second API call
+              fireplaceAdvice: snapshot.data![2],
             );
           }
         },
