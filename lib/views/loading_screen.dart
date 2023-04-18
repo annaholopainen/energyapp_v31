@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-
-Color MyColor = Color(0xFFa3d0e8);
+import 'package:energyapp_v3/models/colors/LightBlue.dart';
 
 class LoadingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyColor,
+      backgroundColor: LightBlue,
       body: Stack(
         fit: StackFit.expand,
         children: [

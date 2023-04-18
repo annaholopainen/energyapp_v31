@@ -1,26 +1,99 @@
+import 'package:energyapp_v3/views/widgets/consumptiontoday.dart';
+import 'package:energyapp_v3/views/widgets/consumptiontoday_card.dart';
+import 'package:energyapp_v3/views/widgets/fireplaceadvice.dart';
+import 'package:energyapp_v3/views/widgets/fireplace_card.dart';
+import 'package:energyapp_v3/views/widgets/spotprice_card.dart';
+import 'package:energyapp_v3/views/widgets/temperature.dart';
+import 'package:energyapp_v3/views/widgets/temperature_card.dart';
 import 'package:flutter/material.dart';
+import 'package:energyapp_v3/views/widgets/spotprice.dart';
+import 'package:intl/intl.dart';
+import 'package:energyapp_v3/models/colors/LightBlue.dart';
 
+Color MediumBlue = Color(0xFF5AA8D2);
 
-Color MyColor = Color(0xFFa3d0e8);
+class HomePage extends StatelessWidget {
+  final SpotPrice? spotPrice;
+  final ConsumptionToday? consumptionToday;
+  final FireplaceAdvice? fireplaceAdvice;
+  final Temperature? temperature;
 
-class HomePagex extends StatelessWidget {
+  const HomePage({
+    Key? key,
+    required this.spotPrice,
+    required this.consumptionToday,
+    required this.fireplaceAdvice,
+    required this.temperature,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    DateTime today = DateTime.now();
+    String formattedDate = DateFormat('dd-MM-yyyy').format(today);
     return Scaffold(
-      backgroundColor: MyColor,
-      body: Stack(
-        fit: StackFit.expand,
+      body: Column(
         children: [
-          Image.asset(
-            "assets/BGShapes.png",
-            fit: BoxFit.cover,
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: LightBlue,
+                image: DecorationImage(
+                  image: AssetImage('assets/BGShapes.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: Center(
+                child:Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Spacer(),
+                    SizedBox(
+                      height: 130,
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Padding(
+                          padding: EdgeInsets.only(right: 10.0), // set the desired padding value
+                          child: Container(
+                            child: TemperatureCard(
+                              temperature: temperature?.value,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height:150,
+                      child: Container(
+                        child:
+                        SpotPriceCard(
+                          spotprice: spotPrice?.value,
+                          date: formattedDate,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height:130,
+                      child: Container(
+                        child: FireplaceCard(
+                          category: fireplaceAdvice?.category,
+                          fireplaceAdvice: fireplaceAdvice?.value,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height:130,
+                      child: Container(
+                        child: ConsumptionTodayCard(
+                          consumptiontoday: consumptionToday?.value,
+                        ),
+                      ),
+                    ),
+                    Spacer(),
+                    Spacer(),
+                  ],
+                ),
+              ),
+            ),
           ),
-          Center(
-            child: LoadingAnimationWidget.inkDrop(
-              color: Color(0xFF04669b),
-              size: 70
-            )
-          )
         ],
       ),
     );

@@ -1,126 +1,84 @@
+import 'package:energyapp_v3/views/graphs_screen.dart';
+import 'package:energyapp_v3/views/home_page.dart';
+import 'package:energyapp_v3/views/profile_screen.dart';
 import 'package:energyapp_v3/views/widgets/consumptiontoday.dart';
-import 'package:energyapp_v3/views/widgets/consumptiontoday_card.dart';
 import 'package:energyapp_v3/views/widgets/fireplaceadvice.dart';
-import 'package:energyapp_v3/views/widgets/fireplace_card.dart';
-import 'package:energyapp_v3/views/widgets/spotprice_card.dart';
 import 'package:energyapp_v3/views/widgets/temperature.dart';
-import 'package:energyapp_v3/views/widgets/temperature_card.dart';
 import 'package:flutter/material.dart';
 import 'package:energyapp_v3/views/widgets/spotprice.dart';
-import 'package:intl/intl.dart';
+import 'package:energyapp_v3/models/colors/LightBlue.dart';
+import 'package:energyapp_v3/models/colors/DarkBlue.dart';
 
-
-
-Color MyColor = Color(0xFFa3d0e8);
 Color MediumBlue = Color(0xFF5AA8D2);
-Color DarkBlue = Color(0xFF04669B);
 
-class HomePage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   final SpotPrice? spotPrice;
   final ConsumptionToday? consumptionToday;
   final FireplaceAdvice? fireplaceAdvice;
   final Temperature? temperature;
 
-  const HomePage({
+  const MainPage({
     Key? key,
     required this.spotPrice,
     required this.consumptionToday,
     required this.fireplaceAdvice,
     required this.temperature,
   }) : super(key: key);
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+
+}
+  class _MainPageState extends State<MainPage> {
+    int _selectedIndex = 0;
+    late List<Widget>  _widgetOptions;
+    @override
+    void initState() {
+      super.initState();
+      _widgetOptions = [
+        HomePage(
+            spotPrice: widget.spotPrice,
+            consumptionToday: widget.consumptionToday,
+            fireplaceAdvice: widget.fireplaceAdvice,
+            temperature: widget.temperature
+        ),
+        GraphsPage(),
+        ProfilePage(),
+      ];
+    }
+    void _onItemTapped(int index) {
+      setState(() {
+        _selectedIndex = index;
+      }); }
+
+
   @override
   Widget build(BuildContext context) {
-    DateTime today = DateTime.now();
-    String formattedDate = DateFormat('dd-MM-yyyy').format(today);
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                color: MyColor,
-                image: DecorationImage(
-                  image: AssetImage('assets/BGShapes.png'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              child: Center(
-                child:Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Spacer(),
-                    SizedBox(
-                      height: 130,
-                      child: Align(
-                        alignment: Alignment.centerRight,
-                        child: Padding(
-                          padding: EdgeInsets.only(right: 10.0), // set the desired padding value
-                          child: Container(
-                            child: TemperatureCard(
-                              temperature: temperature?.value,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height:150,
-                      child: Container(
-                        child:
-                        SpotPriceCard(
-                          spotprice: spotPrice?.value,
-                          date: formattedDate,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height:130,
-                      child: Container(
-                        child: FireplaceCard(
-                          category: fireplaceAdvice?.category,
-                          fireplaceAdvice: fireplaceAdvice?.value,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height:130,
-                      child: Container(
-                        child: ConsumptionTodayCard(
-                          consumptiontoday: consumptionToday?.value,
-                        ),
-                      ),
-                    ),
-                    Spacer(),
-                    Spacer(),
-                  ],
-                ),
-              ),
-            ),
+      body: Center(
+          child: _widgetOptions.elementAt(_selectedIndex)
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: LightBlue,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: DarkBlue,
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-          Container(
-            height: kBottomNavigationBarHeight,
-            child: BottomNavigationBar(
-              backgroundColor: MyColor,
-              selectedItemColor: Colors.white,
-              unselectedItemColor: DarkBlue,
-              type: BottomNavigationBarType.fixed,
-              items: [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
-                  label: 'Home',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.auto_graph_sharp),
-                  label: 'Graphs',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
-                  label: 'Profile',
-                ),
-              ],
-            ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.auto_graph_sharp),
+            label: 'Graphs',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
           ),
         ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
       ),
     );
   }
