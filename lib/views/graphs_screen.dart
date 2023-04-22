@@ -1,3 +1,4 @@
+import 'package:energyapp_v3/views/widgets/graphs/cards/consumptionhourly_card.dart';
 import 'package:flutter/material.dart';
 import 'package:energyapp_v3/models/colors/LightBlue.dart';
 
@@ -14,7 +15,6 @@ class GraphsPage extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
               alignment: Alignment.center,
               child:
               Column(
@@ -22,7 +22,7 @@ class GraphsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-
+                    child: ConsumptionHourlyChart().build(context),
                   )
                 ],
               )

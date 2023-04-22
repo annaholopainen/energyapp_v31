@@ -4,21 +4,22 @@ import 'package:http/http.dart' as http;
 
 class ConsumptionHourlyAPI{
   Future<List<ConsumptionHourly>> getConsumptionHourly() async {
-    final response = await http.get(
-        Uri.parse('http://10.0.2.2:8000/consumption/every_hour/day')
-    );
-    if (response.statusCode == 200) {
-      final data = jsonDecode(response.body);
-      List<ConsumptionHourly> consumptionHourlyList = [];
-      data.forEach((key, value) {
-        consumptionHourlyList.add(ConsumptionHourly.fromMap({
-          'hour': int.parse(key),
-          'consumption': value.toDouble(),
-        }));
-      });
-      return consumptionHourlyList;
-    } else {
-      throw Exception('Failed to load data');
+    try {
+      final response = await http.get(
+          Uri.parse('http://10.0.2.2:8000/api/consumption/every_hour/day')
+      ).timeout(Duration(seconds: 3000));
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = jsonDecode(response.body);
+        final List<ConsumptionHourly> consumptionHourlies = [];
+        data.forEach((key, value) {
+          consumptionHourlies.add(ConsumptionHourly(hour: int.parse(key), consumption: value));
+        });
+        return consumptionHourlies;
+      } else {
+        throw Exception('Failed to load data: ${response.statusCode}');
+      }
+    } catch (error) {
+      throw Exception('Failed to load data: $error');
     }
   }
 }

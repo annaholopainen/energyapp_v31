@@ -20,6 +20,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // hide the debug banner
+      debugShowCheckedModeBanner: false,
       title: 'My App',
       home: FutureBuilder(
         future: apiData,
