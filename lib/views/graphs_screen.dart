@@ -1,4 +1,5 @@
 import 'package:energyapp_v3/views/widgets/graphs/cards/consumptionhourly_card.dart';
+import 'package:energyapp_v3/views/widgets/graphs/cards/moneyspenthourly_card.dart';
 import 'package:flutter/material.dart';
 import 'package:energyapp_v3/models/colors/LightBlue.dart';
 
@@ -25,6 +26,10 @@ class GraphsPage extends StatelessWidget {
                      height: 240,
                           child: ConsumptionHourlyChart().build(context),
                    ),
+                    SizedBox(
+                      height: 240,
+                      child: MoneySpentHourlyChart().build(context),
+                    ),
                   ],
                 )
               ),

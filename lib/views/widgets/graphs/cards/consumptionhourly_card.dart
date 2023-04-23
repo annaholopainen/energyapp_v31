@@ -25,17 +25,10 @@ class ConsumptionHourlyChart extends StatelessWidget {
                 ],
               )).toList();
 
-              List<dynamic> yValues = [];
-              yValues.addAll(consumptionHourlies.map((hourly) => hourly.consumption));
-
-
               double maxYValue = consumptionHourlies
                   .map((hourly) => hourly.consumption)
                   .reduce((max, value) => max > value ? max : value);
               double maxYInterval = ((maxYValue / 0.5).ceil() * 0.5);
-
-              yValues.add(maxYInterval);
-               final ytitles = yValues.map((yValue) => yValue.toString()).toList();
 
               return Container(
                   height: 220,
