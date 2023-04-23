@@ -19,11 +19,24 @@ class ConsumptionHourlyChart extends StatelessWidget {
                 x: hourly.hour,
                 barRods: [
                   BarChartRodData(
-                      toY: hourly.consumption.toDouble(),
+                      toY: (hourly.consumption.toDouble()),
                       color: LightBlue,
                   ),
                 ],
               )).toList();
+
+              List<dynamic> yValues = [];
+              yValues.addAll(consumptionHourlies.map((hourly) => hourly.consumption));
+
+
+              double maxYValue = consumptionHourlies
+                  .map((hourly) => hourly.consumption)
+                  .reduce((max, value) => max > value ? max : value);
+              double maxYInterval = ((maxYValue / 0.5).ceil() * 0.5);
+
+              yValues.add(maxYInterval);
+               final ytitles = yValues.map((yValue) => yValue.toString()).toList();
+
               return Container(
                   height: 220,
                   margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
@@ -46,9 +59,12 @@ class ConsumptionHourlyChart extends StatelessWidget {
                     children:[
                       Align(
                         child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 15),
+                          padding: EdgeInsets.only(left: 15.0, right: 15, top: 15, bottom: 20),
                           child: Text(
-                              'kWh consumption per hour'
+                              'kWh consumption per hour',
+                            style: TextStyle(
+                              fontFamily: 'Didact Gothic',
+                            ),
 
                           ),
                         ),
@@ -60,7 +76,7 @@ class ConsumptionHourlyChart extends StatelessWidget {
                           child: SizedBox(
                             height: 175,
                             child:Padding(
-                              padding: EdgeInsets.only(right: 20, bottom: 15),
+                              padding: EdgeInsets.only(right: 20, left: 10, bottom: 15),
                               child: BarChart(
                                 BarChartData(
                                   gridData: FlGridData(
@@ -83,6 +99,13 @@ class ConsumptionHourlyChart extends StatelessWidget {
                                         showTitles: false,
                                       ),
                                     ),
+                                    leftTitles: AxisTitles(
+                                      sideTitles: SideTitles(
+                                        showTitles: true,
+                                        interval: 0.5,
+                                        reservedSize: 30,
+                                      ),
+                                    ),
                                     topTitles: AxisTitles(
                                       sideTitles: SideTitles(
                                         showTitles: false,
@@ -95,8 +118,8 @@ class ConsumptionHourlyChart extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                                  minY: 0, // Set the minimum y-value to 0
-                                  maxY: consumptionHourlies.map((hourly) => hourly.consumption).reduce((max, value) => max > value ? max : value) + 0.1, // Add 10 units of padding to the max y-value
+                                  minY: 0,
+                                  maxY: maxYInterval,// Set the minimum y-value to 0
                                 ),
                               ),
                             ),
@@ -119,7 +142,6 @@ class ConsumptionHourlyChart extends StatelessWidget {
     );
   }
 }
-
 Widget bottomTitles(double value, TitleMeta meta) {
   final titles = ["0","","", "3", "","", "6", "","", "9", "","", "12", "","", "15", "","", "18","","",  "21",];
 
@@ -128,6 +150,10 @@ Widget bottomTitles(double value, TitleMeta meta) {
   }
   final Widget text = Text(
     titles[value.toInt()],
+    //style: TextStyle(
+      //fontFamily: 'Didact Gothic',
+      //fontSize: 12,
+    //),
   );
 
   return SideTitleWidget(

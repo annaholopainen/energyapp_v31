@@ -39,7 +39,10 @@ class FireplaceCard extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 40.0),
               child: Text(
-                  "Fireplace Advice"
+                  "Fireplace Advice",
+                 style: TextStyle(
+                   fontFamily: 'Didact Gothic',
+                 ),
               ),
             ),
             alignment: Alignment.topLeft,
@@ -62,6 +65,7 @@ class FireplaceCard extends StatelessWidget {
                 text: TextSpan(
                   text: '$fireplaceAdvice',
                   style: TextStyle(
+                      fontFamily: 'Didact Gothic',
                       fontSize: 20,
                       color: Colors.black,
                       fontWeight: FontWeight.bold

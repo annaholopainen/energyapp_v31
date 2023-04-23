@@ -75,10 +75,17 @@ class MainPage extends StatefulWidget {
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
+
           ),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
+        selectedLabelStyle: TextStyle(
+            fontFamily: 'Didact Gothic'
+        ),
+        unselectedLabelStyle: TextStyle(
+            fontFamily: 'Didact Gothic'
+        ),
       ),
     );
   }

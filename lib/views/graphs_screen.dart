@@ -16,16 +16,19 @@ class GraphsPage extends StatelessWidget {
           ),
           Container(
               alignment: Alignment.center,
-              child:
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    child: ConsumptionHourlyChart().build(context),
-                  )
-                ],
-              )
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                   SizedBox(
+                     height: 240,
+                          child: ConsumptionHourlyChart().build(context),
+                   ),
+                  ],
+                )
+              ),
+
           )
         ],
       ),

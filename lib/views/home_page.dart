@@ -46,6 +46,20 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Spacer(),
+                    Align(
+                      child:Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child:Text(
+                          'Nice to see you, John',
+                          style: TextStyle(
+                            fontFamily: 'Didact Gothic',
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      alignment: Alignment.center,
+                    ),
                     SizedBox(
                       height: 130,
                       child: Align(

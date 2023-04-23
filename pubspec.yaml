@@ -64,6 +64,8 @@ flutter:
   assets:
     - assets/BGShapes.png
     - assets/fireplace.svg
+    - assets/dummyprofilepic.jpeg
+
 
 
   # The following line ensures that the Material Icons font is

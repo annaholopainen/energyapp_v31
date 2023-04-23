@@ -17,14 +17,42 @@ class ProfilePage extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 20),
               alignment: Alignment.center,
               child:
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-
-                  )
-                ],
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 75,
+                      backgroundImage: AssetImage(
+                        'assets/dummyprofilepic.jpeg'
+                      ),
+                    ),
+                    SizedBox(height: 24),
+                    Text(
+                      'John Doe',
+                      style: TextStyle(
+                        fontFamily: 'Didact Gothic',
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      'john.doe@example.com',
+                      style: TextStyle(
+                        fontFamily: 'Didact Gothic',
+                        fontSize: 16,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    SizedBox(height: 16),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text('Edit Profile'),
+                    ),
+                  ],
+                ),
               )
           )
         ],

@@ -35,7 +35,10 @@ class SpotPriceCard extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 15),
                 child: Text(
-                    'Spot price right now'
+                    'Spot price right now',
+                  style: TextStyle(
+                  fontFamily: 'Didact Gothic',
+                ),
                 ),
               ),
               alignment: Alignment.topLeft,
@@ -47,6 +50,7 @@ class SpotPriceCard extends StatelessWidget {
                   text: TextSpan(
                     text:'$spotprice',
                     style: TextStyle(
+                        fontFamily: 'Didact Gothic',
                         fontSize: 40,
                         color: Colors.black,
                         fontWeight: FontWeight.bold
@@ -63,7 +67,10 @@ class SpotPriceCard extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 15),
                 child: Text(
-                    date
+                    date,
+                  style: TextStyle(
+                    fontFamily: 'Didact Gothic',
+                  ),
                 ),
               ),
               alignment: Alignment.bottomRight,
