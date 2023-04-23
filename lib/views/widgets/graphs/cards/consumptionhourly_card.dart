@@ -1,7 +1,7 @@
 import 'package:energyapp_v3/models/colors/LightBlue.dart';
-import 'package:energyapp_v3/views/loading_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import '../../../../models/apis/graphs/consumptionhourly_api.dart';
 import '../classes/consumption_hourly.dart';
@@ -129,7 +129,12 @@ class ConsumptionHourlyChart extends StatelessWidget {
             }
 
             // By default, show a loading spinner.
-            return LoadingScreen();
+            return Center(
+                child: LoadingAnimationWidget.inkDrop(
+                  color: Color(0xFF04669b),
+                  size: 70,
+                )
+            );
           },
         ),
     );

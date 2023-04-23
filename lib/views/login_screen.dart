@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../models/colors/DarkBlue.dart';
+
 Color MyColor = Color(0xFFa3d0e8);
 
 class LoginScreen extends StatelessWidget {
@@ -81,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(70),
                     ),
-                    backgroundColor: Color(0xFF04669b).withOpacity(0.55),
+                    backgroundColor: DarkBlue,
                     label: const Text(
                         style: TextStyle(
                           fontFamily: 'Didact Gothic'

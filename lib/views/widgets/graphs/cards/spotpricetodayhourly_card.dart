@@ -1,34 +1,33 @@
 import 'package:energyapp_v3/models/colors/LightBlue.dart';
-import 'package:energyapp_v3/views/widgets/graphs/classes/moneyspent_hourly.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import '../../../../models/apis/graphs/spotpricetodayhourly_api.dart';
+import '../classes/spotpricetoday_hourly.dart';
 
-import '../../../../models/apis/graphs/moneyspenthourly_api.dart';
 
-
-class MoneySpentHourlyChart extends StatelessWidget {
+class SpotPriceTodayHourlyChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: FutureBuilder<List<MoneySpentHourly>>(
-        future: MoneySpentHourlyAPI().getMoneySpentHourly(),
+      child: FutureBuilder<List<SpotPriceTodayHourly>>(
+        future: SpotPriceTodayHourlyAPI().getSpotPriceTodayHourly(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            final List<MoneySpentHourly> moneyspentHourlies = snapshot.data!;
-            final List<BarChartGroupData> barChartData = moneyspentHourlies.map((hourly) => BarChartGroupData(
+            final List<SpotPriceTodayHourly> spotpricetodayHourlies = snapshot.data!;
+            final List<BarChartGroupData> barChartData = spotpricetodayHourlies.map((hourly) => BarChartGroupData(
               x: hourly.hour,
               barRods: [
                 BarChartRodData(
-                  toY: (hourly.moneyspent.toDouble()),
+                  toY: (hourly.spotprice.toDouble()),
                   color: LightBlue,
                 ),
               ],
             )).toList();
 
 
-            double maxYValue = moneyspentHourlies
-                .map((hourly) => hourly.moneyspent)
+            double maxYValue = spotpricetodayHourlies
+                .map((hourly) => hourly.spotprice)
                 .reduce((max, value) => max > value ? max : value);
             double maxYInterval = ((maxYValue / 0.5).ceil() * 0.5);
 
@@ -57,7 +56,7 @@ class MoneySpentHourlyChart extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.only(left: 15.0, right: 15, top: 15, bottom: 20),
                         child: Text(
-                          'cents spent per hour',
+                          'spot price per hour',
                           style: TextStyle(
                             fontFamily: 'Didact Gothic',
                           ),
@@ -133,10 +132,10 @@ class MoneySpentHourlyChart extends StatelessWidget {
 
           // By default, show a loading spinner.
           return Center(
-              child: LoadingAnimationWidget.inkDrop(
-                color: Color(0xFF04669b),
-                size: 70,
-              )
+            child: LoadingAnimationWidget.inkDrop(
+              color: Color(0xFF04669b),
+              size: 70,
+            )
           );
         },
       ),

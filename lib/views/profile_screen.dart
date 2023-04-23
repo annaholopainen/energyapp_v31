@@ -1,5 +1,8 @@
+import 'package:energyapp_v3/views/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:energyapp_v3/models/colors/LightBlue.dart';
+
+import '../models/colors/DarkBlue.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -47,9 +50,23 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 16),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text('Edit Profile'),
+                    FloatingActionButton.extended(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginScreen()),
+                        );
+                      },
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(70),
+                      ),
+                      backgroundColor: DarkBlue,
+                      label: const Text(
+                          style: TextStyle(
+                              fontFamily: 'Didact Gothic'
+                          ),
+                          'Sign out'
+                      ),
                     ),
                   ],
                 ),
